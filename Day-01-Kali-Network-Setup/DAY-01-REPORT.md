@@ -320,6 +320,81 @@ The following evidence was collected during the task.
 
 ---
 
+# 10. Screenshot Evidence
+
+This section contains the visual evidence collected during the Day 01 Kali Linux and network setup exercise.
+
+## 10.1 Hostname Verification
+
+The `hostname` command was used to verify the system hostname.
+
+![Hostname verification](screenshots/01-hostname.png)
+
+---
+
+## 10.2 Current User Verification
+
+The `whoami` command was used to identify the active user.
+
+![Current user verification](screenshots/02-whoami.png)
+
+---
+
+## 10.3 Network Interface and IP Address Enumeration
+
+The `ip a` command was used to identify available interfaces and assigned IP addresses.
+
+![IP address and interface enumeration](screenshots/03-ip-a.png)
+
+---
+
+## 10.4 Interface Configuration
+
+The `ifconfig` command was used to inspect interface configuration and network statistics.
+
+![Interface configuration](screenshots/04-ifconfig.png)
+
+---
+
+## 10.5 Routing Table
+
+The `ip route` command was used to identify the default gateway and routing configuration.
+
+![Routing table](screenshots/05-ip-route.png)
+
+---
+
+## 10.6 Connectivity Verification
+
+Connectivity to the local gateway and external network was verified using ICMP ping tests.
+
+![Connectivity verification](screenshots/06-ping.png)
+
+---
+
+## 10.7 Listening Service Enumeration
+
+Listening TCP/UDP sockets were checked to identify services exposed by the Kali lab system.
+
+![Listening service enumeration](screenshots/07-listening-services.png)
+
+---
+
+## 11. Conclusion
+
+The Day 01 Kali Linux and network setup task was successfully completed.
+
+The lab environment was validated by confirming the hostname, active user, network interfaces, IPv4 configuration, default gateway, routing table, network connectivity, and listening services.
+
+The primary lab interface was identified as `eth0`, with IPv4 address `10.0.2.15/24` and default gateway `10.0.2.2`.
+
+Connectivity to both the local gateway and external IP address `8.8.8.8` was successfully verified with 0% packet loss.
+
+No TCP/UDP listening services were detected during the service enumeration performed at the time of testing.
+
+All command outputs and screenshots have been preserved as supporting evidence within the project repository.
+---
+
 ## 11. Commands Practiced
 
 The following Linux networking and system-identification commands were used:
