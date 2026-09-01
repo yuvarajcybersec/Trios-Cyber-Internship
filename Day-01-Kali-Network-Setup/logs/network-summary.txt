@@ -1,0 +1,11 @@
+===== NETWORK SUMMARY =====
+Hostname: kali
+User: yuvaraj
+
+Interfaces and IP addresses:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             10.0.2.15/24 fd17:625c:f037:2:8e17:8718:a662:b65/64 fd17:625c:f037:2:a00:27ff:fe53:7fc9/64 fe80::a00:27ff:fe53:7fc9/64 
+
+Routing:
+default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100 
+10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100 
