@@ -1,0 +1,45 @@
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  margin=1in
+}
+
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\titleformat{\section}
+  {\Large\bfseries}
+  {\thesection.}
+  {0.6em}
+  {}
+
+\titleformat{\subsection}
+  {\large\bfseries}
+  {\thesubsection}
+  {0.6em}
+  {}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{\small Trios Cyber Internship}
+\rhead{\small Day 01 — Kali Linux \& Network Setup}
+\cfoot{\small Page \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+}
