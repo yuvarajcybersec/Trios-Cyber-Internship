@@ -1,0 +1,5 @@
+Assessment: Day 03 - TCP/UDP Enumeration
+Target: 192.168.56.101
+Kali: 192.168.56.102
+Interface: eth0
+Scope: Authorized local Metasploitable lab

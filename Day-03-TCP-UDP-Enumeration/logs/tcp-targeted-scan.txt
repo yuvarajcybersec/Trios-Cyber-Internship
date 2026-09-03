@@ -1,0 +1,21 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-09-03 13:26 +0530
+Nmap scan report for 192.168.56.101
+Host is up (0.0043s latency).
+
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+23/tcp   open  telnet
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+5432/tcp open  postgresql
+5900/tcp open  vnc
+8009/tcp open  ajp13
+8180/tcp open  unknown
+MAC Address: 08:00:27:48:45:D9 (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.63 seconds
