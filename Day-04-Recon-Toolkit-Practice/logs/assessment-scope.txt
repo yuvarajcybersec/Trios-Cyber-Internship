@@ -1,0 +1,6 @@
+Assessment: Day 04 - Recon Toolkit Practice
+Target: example.com
+Kali: Reconnaissance workstation
+Scope: Basic WHOIS, DNS, HTTP header, and traceroute reconnaissance
+Activity: Authorized safe/public training resource
+Out of Scope: Exploitation, credential attacks, brute force, vulnerability exploitation, or destructive activity

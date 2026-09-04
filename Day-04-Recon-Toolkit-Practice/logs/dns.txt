@@ -1,0 +1,67 @@
+===== A RECORD =====
+
+; <<>> DiG 9.20.26-1-Debian <<>> example.com A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19302
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1472
+;; QUESTION SECTION:
+;example.com.			IN	A
+
+;; ANSWER SECTION:
+example.com.		903	IN	A	172.66.147.243
+example.com.		903	IN	A	104.20.23.154
+
+;; Query time: 12 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1) (UDP)
+;; WHEN: Fri Sep 04 12:26:08 IST 2026
+;; MSG SIZE  rcvd: 72
+
+
+===== MX RECORD =====
+
+; <<>> DiG 9.20.26-1-Debian <<>> example.com MX
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3755
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1472
+;; QUESTION SECTION:
+;example.com.			IN	MX
+
+;; ANSWER SECTION:
+example.com.		1200	IN	MX	0 .
+
+;; Query time: 40 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1) (UDP)
+;; WHEN: Fri Sep 04 12:26:08 IST 2026
+;; MSG SIZE  rcvd: 55
+
+
+===== NS RECORD =====
+
+; <<>> DiG 9.20.26-1-Debian <<>> example.com NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 43289
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1472
+;; QUESTION SECTION:
+;example.com.			IN	NS
+
+;; ANSWER SECTION:
+example.com.		542	IN	NS	hera.ns.cloudflare.com.
+example.com.		542	IN	NS	elliott.ns.cloudflare.com.
+
+;; Query time: 12 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1) (UDP)
+;; WHEN: Fri Sep 04 12:26:08 IST 2026
+;; MSG SIZE  rcvd: 95
+
