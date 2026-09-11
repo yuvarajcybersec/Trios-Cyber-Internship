@@ -1,0 +1,34 @@
+- Nikto v2.6.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.101
++ Target Hostname:    192.168.56.101
++ Target Port:        80
++ Platform:           Unknown
++ Start Time:         2026-09-11 14:04:50 (GMT5.5)
+---------------------------------------------------------------------------
++ Server: Apache/2.2.8 (Ubuntu) DAV/2
++ [95] /dvwa/: Cookie PHPSESSID created without the httponly flag. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
++ [95] /dvwa/: Cookie security created without the httponly flag. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
++ [999986] /dvwa/: Retrieved x-powered-by header: PHP/5.2.4-2ubuntu5.10.
++ [750500] /dvwa/docs/: Directory indexing found.
++ No CGI Directories found (use '-C all' to force check all possible dirs). CGI tests skipped.
++ [999984] /dvwa/robots.txt: Server may leak inodes via ETags, header found with file /dvwa/robots.txt, inode: 93164, size: 26, mtime: Tue Mar 16 11:26:22 2010. See: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1418
++ [600625] PHP/5.2.4-2ubuntu5.10 appears to be outdated (current is at least 8.5.1).
++ [600050] Apache/2.2.8 appears to be outdated (current is at least 2.4.66).
++ [999100] /dvwa/index: Uncommon header(s) 'tcn' found, with contents: list.
++ [999965] /index: Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. The following alternatives for 'index' were found: index.php. See: http://www.wisec.it/sectou.php?id=4698ebdc59d15,https://exchange.xforce.ibmcloud.com/vulnerabilities/8275
++ [013587] /dvwa/: Suggested security header missing: x-content-type-options. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
++ [013587] /dvwa/: Suggested security header missing: content-security-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
++ [013587] /dvwa/: Suggested security header missing: referrer-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
++ [013587] /dvwa/: Suggested security header missing: strict-transport-security. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
++ [013587] /dvwa/: Suggested security header missing: permissions-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
++ [000434] /: HTTP TRACE method is active and replies which suggests the host is vulnerable to XST. See: https://owasp.org/www-community/attacks/Cross_Site_Tracing
++ [750500] /dvwa/config/: Directory indexing found.
++ [000998] /dvwa/config/: Configuration information may be available remotely.
++ [001384] /dvwa/?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP Easter Eggs reveals potentially sensitive information via HTTP requests that contain specific QUERY strings. See: https://labs.detectify.com/writeups/do-you-dare-to-show-your-php-easter-egg/
++ [001385] /dvwa/?=PHPE9568F36-D428-11d2-A769-00AA001ACF42: PHP Easter Egg reveals potentially sensitive information via HTTP requests that contain specific QUERY strings. See: https://labs.detectify.com/writeups/do-you-dare-to-show-your-php-easter-egg/
++ [001386] /dvwa/?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP Easter Egg reveals potentially sensitive information via HTTP requests that contain specific QUERY strings. See: https://labs.detectify.com/writeups/do-you-dare-to-show-your-php-easter-egg/
++ [001387] /dvwa/?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP Easter Egg reveals potentially sensitive information via HTTP requests that contain specific QUERY strings. See: https://labs.detectify.com/writeups/do-you-dare-to-show-your-php-easter-egg/
++ [001736] /dvwa/login/: This might be interesting.
++ [003576] /dvwa/CHANGELOG.txt: A changelog was found.
++ [006333] /dvwa/login.php: Admin login page/section found.

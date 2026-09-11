@@ -1,0 +1,12 @@
+HTTP/1.1 302 Found
+Date: Fri, 11 Sep 2026 08:39:54 GMT
+Server: Apache/2.2.8 (Ubuntu) DAV/2
+X-Powered-By: PHP/5.2.4-2ubuntu5.10
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Set-Cookie: PHPSESSID=39054ba7f76cdd7d1c4fe15ae06aff97; path=/
+Set-Cookie: security=high
+Location: login.php
+Content-Type: text/html
+
