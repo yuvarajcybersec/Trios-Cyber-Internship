@@ -1,0 +1,22 @@
+[2K                        [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 21ms][0m
+[2K.hta                    [Status: 403, Size: 296, Words: 22, Lines: 11, Duration: 3ms][0m
+[2K.htaccess               [Status: 403, Size: 301, Words: 22, Lines: 11, Duration: 2ms][0m
+[2K.htpasswd               [Status: 403, Size: 301, Words: 22, Lines: 11, Duration: 2ms][0m
+[2Kabout                   [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 13ms][0m
+[2Kconfig                  [Status: 301, Size: 327, Words: 21, Lines: 10, Duration: 3ms][0m
+[2Kdocs                    [Status: 301, Size: 325, Words: 21, Lines: 10, Duration: 3ms][0m
+[2Kexternal                [Status: 301, Size: 329, Words: 21, Lines: 10, Duration: 2ms][0m
+[2Kfavicon.ico             [Status: 200, Size: 1406, Words: 5, Lines: 2, Duration: 3ms][0m
+[2Kindex                   [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 20ms][0m
+[2Kindex.php               [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 21ms][0m
+[2Kinstructions            [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 22ms][0m
+[2Klogin                   [Status: 200, Size: 1289, Words: 83, Lines: 66, Duration: 23ms][0m
+[2Klogout                  [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 13ms][0m
+[2Kphp.ini                 [Status: 200, Size: 148, Words: 17, Lines: 5, Duration: 3ms][0m
+[2Kphpinfo                 [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 19ms][0m
+[2Kphpinfo.php             [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 13ms][0m
+[2KREADME                  [Status: 200, Size: 4934, Words: 637, Lines: 120, Duration: 2ms][0m
+[2Krobots                  [Status: 200, Size: 26, Words: 3, Lines: 2, Duration: 2ms][0m
+[2Krobots.txt              [Status: 200, Size: 26, Words: 3, Lines: 2, Duration: 2ms][0m
+[2Ksecurity                [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 15ms][0m
+[2Ksetup                   [Status: 200, Size: 3549, Words: 182, Lines: 81, Duration: 13ms][0m
