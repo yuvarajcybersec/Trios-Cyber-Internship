@@ -1,0 +1,78 @@
+DAY 14 – XSS AND ACCESS CONTROL EVIDENCE
+
+AUTHORIZED ENVIRONMENTS
+1. DVWA running on the authorized local VirtualBox laboratory:
+   http://192.168.56.101/dvwa/
+2. PortSwigger Web Security Academy temporary laboratory:
+   User ID controlled by request parameter
+
+============================================================
+TASK 1 – REFLECTED XSS
+============================================================
+
+Vulnerable endpoint:
+GET /dvwa/vulnerabilities/xss_r/?name=test123
+
+Observed reflection:
+Hello test123
+
+Harmless proof-of-concept payload:
+<script>alert(1)</script>
+
+Observed result:
+The payload was reflected into the HTML response and executed in the browser,
+producing a JavaScript alert containing the value 1.
+
+Evidence screenshots:
+01-burp-xss-reflection-request.png
+02-xss-reflection-confirmed.png
+03-xss-success-evidence.png
+04-burp-xss-payload.png
+
+============================================================
+TASK 2 – ACCESS CONTROL / IDOR
+============================================================
+
+Authorized PortSwigger lab:
+User ID controlled by request parameter
+
+Baseline authenticated account:
+Username: wiener
+Password: peter
+
+Baseline request:
+GET /my-account?id=wiener
+
+Modified request:
+GET /my-account?id=carlos
+
+Observed response:
+HTTP/2 200 OK
+
+Observed account:
+Your username is: carlos
+
+The response disclosed Carlos's account information while the authenticated
+session belonged to the authorized lab user wiener.
+
+This demonstrates an IDOR-style broken horizontal access-control condition
+within the intentionally vulnerable PortSwigger laboratory.
+
+Evidence screenshots:
+05-access-control-account-a.png
+06-access-control-account-b.png
+
+============================================================
+SCOPE AND SAFETY
+============================================================
+
+Testing was restricted to authorized intentionally vulnerable laboratory
+environments. The XSS payload was a harmless alert(1) proof of concept.
+No real users, external production systems, brute force, destructive actions,
+or unauthorized targets were involved.
+
+NOTE:
+The PortSwigger Academy lab interface remained marked "Not solved" even
+though the controlled request returned Carlos's account data. The technical
+behavior was documented as observed evidence rather than claiming that the
+Academy completion state was achieved.
