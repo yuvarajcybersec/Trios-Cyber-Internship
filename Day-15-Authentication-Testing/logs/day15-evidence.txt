@@ -1,0 +1,49 @@
+DAY 15 – AUTHENTICATION TESTING EVIDENCE
+
+AUTHORIZED ENVIRONMENT
+DVWA running on the authorized local VirtualBox laboratory:
+http://192.168.56.101/dvwa/
+
+============================================================
+TASK – AUTHENTICATION AND SESSION BEHAVIOR
+============================================================
+
+Authentication endpoint:
+POST /dvwa/login.php HTTP/1.1
+
+Authentication response:
+HTTP/1.1 302 Found
+
+PRE-AUTHENTICATION:
+A PHPSESSID cookie was observed before authentication.
+
+POST-AUTHENTICATION:
+A PHPSESSID cookie was observed after successful authentication.
+
+SESSION COMPARISON:
+The PHPSESSID value remained unchanged before and after authentication.
+
+AUTHENTICATED REQUEST:
+A subsequent authenticated request contained a PHPSESSID cookie,
+confirming that the same session identifier was being used.
+
+OBSERVATION:
+The tested DVWA login flow did not regenerate the PHPSESSID value
+when authentication occurred.
+
+EVIDENCE SCREENSHOTS:
+01-pre-authentication-cookie.png
+02-post-authentication-cookie.png
+03-burp-authentication-request-response.png
+04-authenticated-request-cookie.png
+
+============================================================
+SCOPE AND SAFETY
+============================================================
+
+Testing was restricted to the authorized intentionally vulnerable
+DVWA laboratory. No production systems, real user accounts,
+credential attacks, brute force, or unauthorized targets were used.
+
+Sensitive session-cookie values are intentionally excluded from
+this evidence log and final report.
