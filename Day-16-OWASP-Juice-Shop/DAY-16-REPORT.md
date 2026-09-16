@@ -1,0 +1,265 @@
+# Trios Cyber Internship — Day 16 Report
+
+## TryHackMe OWASP Juice Shop
+
+**Date:** September 2026  
+**Platform:** TryHackMe  
+**Environment:** OWASP Juice Shop — AttackBox  
+**Status:** Completed — Selected Beginner Tasks  
+**Tools:** Browser, Burp Suite, Nmap, curl
+
+---
+
+## 1. Executive Summary
+
+Day 16 focused on reconnaissance and beginner web-application security exercises using the intentionally vulnerable OWASP Juice Shop application on TryHackMe.
+
+The activities included identifying application information, observing search functionality, reviewing publicly displayed product-review information, validating the target service, and performing authentication-focused SQL injection exercises using Burp Suite.
+
+All testing was performed within the authorized TryHackMe training environment. The report documents only activities that were actually performed and avoids claiming completion of challenges for which supporting evidence was not captured.
+
+---
+
+## 2. Objectives
+
+The objectives of Day 16 were to:
+
+- Explore the OWASP Juice Shop application.
+- Perform basic reconnaissance of the training target.
+- Identify information exposed through the application's interface.
+- Identify the parameter used by the application's search function.
+- Review application content and user-generated reviews.
+- Understand the SQL injection authentication exercise provided by the TryHackMe room.
+- Use Burp Suite to inspect authentication traffic.
+- Demonstrate authentication as the Bender account.
+- Document observations and supporting evidence professionally.
+
+---
+
+## 3. Authorized Scope
+
+Testing was limited to the intentionally vulnerable OWASP Juice Shop instance provided through the TryHackMe training environment.
+
+### Network Details
+
+| Item | Value |
+|---|---|
+| AttackBox | 10.49.158.44 |
+| Juice Shop Target | 10.49.170.217 |
+| HTTP Service | TCP/80 |
+| SSH Service | TCP/22 |
+
+No external, production, or unauthorized systems were targeted.
+
+---
+
+## 4. Tools Used
+
+### Browser / Firefox
+Used to access and interact with the Juice Shop application.
+
+### Burp Suite
+Used to intercept and inspect HTTP authentication traffic during the SQL injection exercise.
+
+### Nmap
+Used to verify the reachable target and identify exposed services.
+
+### curl
+Used to confirm that the target HTTP service was responding.
+
+---
+
+## 5. Target and Service Verification
+
+The Juice Shop target was identified as:
+
+`10.49.170.217`
+
+Nmap identified the following open TCP services:
+
+| Port | State | Service |
+|---|---|---|
+| 22/tcp | Open | SSH |
+| 80/tcp | Open | HTTP |
+
+The HTTP service was subsequently confirmed using curl.
+
+The target responded successfully, allowing the browser-based Juice Shop application to be accessed from the AttackBox.
+
+---
+
+## 6. Reconnaissance — Application Walkthrough
+
+The initial reconnaissance phase involved browsing the Juice Shop application and examining information exposed through normal application functionality.
+
+The TryHackMe room's reconnaissance questions resulted in the following findings.
+
+### Administrator Email
+
+The administrator email address identified through the application was:
+
+`admin@juice-sh.op`
+
+### Search Parameter
+
+The search functionality uses the URL parameter:
+
+`q`
+
+### Jim's Review
+
+Jim's review of the Green Smoothie product referenced a replicator and identified the television series as:
+
+`Star Trek`
+
+These observations demonstrate that useful application information can sometimes be obtained through normal browsing and examination of publicly accessible application content.
+
+---
+
+## 7. SQL Injection Authentication Exercise
+
+The TryHackMe room introduced an authentication SQL injection exercise.
+
+The exercise demonstrated how specially crafted input can alter the logic of an application's database query when user input is incorporated into SQL statements without adequate protection.
+
+The administrator authentication exercise used the payload described by the training room:
+
+`' or 1=1--`
+
+The important concepts demonstrated were:
+
+- A single quote can terminate a quoted SQL string.
+- `OR 1=1` creates a condition that evaluates as true.
+- `--` can comment out the remainder of a SQL statement in the relevant SQL syntax.
+- Unsafe construction of SQL queries can therefore affect authentication logic.
+
+This exercise was performed only within the intentionally vulnerable TryHackMe application.
+
+---
+
+## 8. Bender Authentication Demonstration
+
+A second authentication exercise targeted the Bender account.
+
+The input demonstrated during the exercise was:
+
+`bender@juice-sh.op'--`
+
+The authentication request was intercepted using Burp Suite.
+
+The Juice Shop interface subsequently displayed the Bender account:
+
+`bender@juice-sh.op`
+
+This provided direct evidence that the authentication exercise was successfully demonstrated in the training environment.
+
+---
+
+## 9. Burp Suite Traffic Inspection
+
+Burp Suite was used to inspect the authentication request generated by the Juice Shop login process.
+
+The exercise demonstrated the relationship between:
+
+1. User-controlled authentication input.
+2. The HTTP login request.
+3. Server-side authentication processing.
+4. The resulting authenticated application state.
+
+Inspecting requests in Burp Suite provides visibility into how browser input is transmitted to a web application and is useful for understanding web security testing techniques.
+
+---
+
+## 10. Security Observations
+
+The training exercise demonstrated the security impact that can result when an application constructs SQL queries using untrusted input without appropriate protections.
+
+The observed behavior is consistent with an authentication SQL injection scenario in the intentionally vulnerable Juice Shop application.
+
+The exercise also demonstrates why authentication functionality should treat all client-provided input as untrusted.
+
+---
+
+## 11. Security Recommendations
+
+For a real-world application, appropriate defensive controls would include:
+
+- Use parameterized SQL queries or prepared statements.
+- Avoid dynamically constructing SQL queries from raw user input.
+- Apply server-side input validation.
+- Use secure authentication architecture.
+- Return generic authentication failure messages.
+- Implement appropriate logging and monitoring.
+- Conduct regular secure code reviews and penetration testing.
+- Apply least-privilege permissions to application database accounts.
+
+The recommendations above are defensive measures and were not used to test any external system.
+
+---
+
+## 12. Evidence Summary
+
+The following evidence was prepared for the completed work:
+
+| Evidence | Description |
+|---|---|
+| `01-task-1-open-for-business.png` | TryHackMe OWASP Juice Shop task evidence |
+| `02-juice-shop-access.png` | Juice Shop application access |
+| `03-administrator-email.png` | Administrator email discovery |
+| `04-search-parameter-q.png` | Search parameter identification |
+| `06-sqli-bender-login.png` | Successful Bender authentication exercise |
+
+The evidence log is stored at:
+
+`logs/day16-evidence.txt`
+
+---
+
+## 13. Evidence Limitations
+
+Screenshots numbered 05, 06, and 07 were not captured during the practical session.
+
+They have therefore not been represented as completed evidence.
+
+This report intentionally documents only the activities and observations that were actually performed and supported by the available evidence.
+
+---
+
+## 14. Safety and Scope
+
+All practical testing was performed against the deliberately vulnerable OWASP Juice Shop environment supplied by TryHackMe.
+
+The testing was conducted for authorized cybersecurity training purposes.
+
+No real-world or unauthorized systems were targeted.
+
+---
+
+## 15. Learning Outcomes
+
+By completing this exercise, the following concepts were reinforced:
+
+- Basic web-application reconnaissance.
+- Identifying information exposed through application functionality.
+- Understanding URL query parameters.
+- Inspecting user-generated application content.
+- Basic SQL injection concepts.
+- Authentication bypass concepts in a deliberately vulnerable application.
+- HTTP request interception using Burp Suite.
+- The importance of parameterized database queries.
+- The importance of documenting security testing evidence.
+
+---
+
+## 16. Conclusion
+
+Day 16 provided practical exposure to reconnaissance and SQL injection concepts through the TryHackMe OWASP Juice Shop training environment.
+
+The exercise demonstrated how application functionality can reveal useful reconnaissance information and how insecure SQL query construction can affect authentication behavior.
+
+The completed observations, practical activities, evidence limitations, and defensive recommendations have been documented in this report for internship submission and future reference.
+
+---
+
+**Trios Cyber Internship — Day 16**  
+**OWASP Juice Shop | Reconnaissance and SQL Injection Authentication Testing**

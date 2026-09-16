@@ -1,0 +1,58 @@
+TRIOS CYBER INTERNSHIP — DAY 16 EVIDENCE LOG
+=============================================
+
+Assignment:
+TryHackMe OWASP Juice Shop
+
+Authorized Environment:
+TryHackMe OWASP Juice Shop room using the provided AttackBox.
+
+AttackBox IP:
+10.49.158.44
+
+Juice Shop Target:
+10.49.170.217
+
+Network Verification:
+- Target host responded to ping.
+- Nmap identified TCP/22 (SSH) and TCP/80 (HTTP).
+- HTTP service was confirmed on port 80.
+
+Tools Used:
+- Browser / Firefox
+- Burp Suite
+- Nmap
+- curl
+
+Reconnaissance Findings:
+1. Administrator email address:
+   admin@juice-sh.op
+
+2. Search parameter:
+   q
+
+3. Jim's review reference:
+   Star Trek
+
+SQL Injection Exercise:
+- Completed the administrator authentication SQL injection exercise described by the TryHackMe room.
+- Demonstrated Bender authentication using:
+  bender@juice-sh.op'--
+- Successful Bender login was observed in the Juice Shop interface.
+- Burp Suite was used to inspect/intercept the authentication request.
+
+Evidence Screenshots:
+- 01-task-1-open-for-business.png
+- 02-juice-shop-access.png
+- 03-administrator-email.png
+- 04-search-parameter-q.png
+- 06-sqli-bender-login.png
+
+Evidence Limitation:
+- Screenshots numbered 05 and 07 were not captured.
+- No uncompleted challenge is represented as completed in this report.
+- The report documents only activities and observations actually performed.
+
+Safety and Scope:
+All testing was performed against the intentionally vulnerable TryHackMe
+training environment. No real-world or unauthorized systems were targeted.
