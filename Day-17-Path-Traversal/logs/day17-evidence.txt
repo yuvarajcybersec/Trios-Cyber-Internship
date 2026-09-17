@@ -1,0 +1,32 @@
+Day 17 Evidence Log - Path Traversal Lab
+Date: 17 September 2026
+Internship: Trios Cyber
+Authorized Scope: PortSwigger Web Security Academy Path Traversal labs only
+Tool: Burp Suite
+
+LAB 1 - File path traversal, simple case
+- Vulnerable endpoint: /image
+- Vulnerable parameter: filename
+- Technique: Relative path traversal using ../ sequences
+- Traversal payload: ../../../etc/passwd
+- Result: HTTP response returned /etc/passwd content, including the root account entry.
+- Evidence:
+  01-lab-1-initial-page.png
+  02-lab-1-path-traversal-success.png
+
+LAB 2 - File path traversal, traversal sequences blocked with absolute path bypass
+- Vulnerable endpoint: /image
+- Vulnerable parameter: filename
+- Baseline request: /image?filename=5.jpg
+- Technique: Absolute path bypass
+- Payload: /etc/passwd
+- Result: HTTP 200 response returned /etc/passwd content, including the root account entry.
+- Evidence:
+  03-lab-2-initial-page.png
+  04-lab-2-path-traversal-success.png
+
+SECURITY OBSERVATION
+The labs demonstrate that insufficient validation of user-controlled file paths can allow access to files outside the intended web application directory. Blocking only relative traversal sequences is insufficient when absolute filesystem paths remain accepted.
+
+SAFETY
+Testing was restricted to the authorized PortSwigger Web Security Academy training laboratories.
