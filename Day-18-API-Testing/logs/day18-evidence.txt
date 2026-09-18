@@ -1,0 +1,124 @@
+DAY 18 – API TESTING BASICS
+Trios Cyber Internship
+Date: 18 September 2026
+Environment: OWASP crAPI – local intentionally vulnerable API lab
+Tool: Burp Suite
+
+==================================================
+1. LAB ACCESS
+==================================================
+
+Application:
+http://localhost:8888
+
+Purpose:
+Local API testing against OWASP crAPI.
+
+==================================================
+2. GET REQUEST – BASELINE
+==================================================
+
+Request:
+GET /chatbot/genai/state HTTP/1.1
+Host: localhost:8888
+
+Baseline result:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+Response:
+{"initialized":"false","message":"Model needs to be initialized"}
+
+Evidence:
+screenshots/02-get-request-baseline.png
+
+==================================================
+3. GET REQUEST – SAFE HEADER CHANGE
+==================================================
+
+Original header:
+Accept: */*
+
+Changed header:
+Accept: application/json
+
+Request:
+GET /chatbot/genai/state HTTP/1.1
+Host: localhost:8888
+
+Result:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+Response:
+{"initialized":"false","message":"Model needs to be initialized"}
+
+Observation:
+The server accepted the changed Accept header and returned the same JSON response.
+
+Evidence:
+screenshots/03-get-request-header-change.png
+
+==================================================
+4. POST REQUEST – BASELINE
+==================================================
+
+Request:
+POST /chatbot/genai/reset HTTP/1.1
+Host: localhost:8888
+Content-Type: application/json
+Content-Length: 0
+
+Result:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+Response:
+{"initialized":"false","message":"Reset successful"}
+
+Evidence:
+screenshots/04-post-request-baseline.png
+
+==================================================
+5. POST REQUEST – SAFE HEADER CHANGE
+==================================================
+
+Original header:
+Accept: application/json
+
+Changed header:
+Accept: */*
+
+Request:
+POST /chatbot/genai/reset HTTP/1.1
+Host: localhost:8888
+Content-Type: application/json
+Content-Length: 0
+
+Result:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+Response:
+{"initialized":"false","message":"Reset successful"}
+
+Observation:
+The server accepted the changed Accept header and returned the same JSON response.
+
+Evidence:
+screenshots/05-post-request-header-change.png
+
+==================================================
+6. SUMMARY
+==================================================
+
+GET testing:
+Baseline and safe Accept-header modification were compared.
+
+POST testing:
+Baseline and safe Accept-header modification were compared.
+
+No destructive API operation was intentionally performed during testing.
+
+Initial application evidence:
+screenshots/01-crapi-initial-page.png
