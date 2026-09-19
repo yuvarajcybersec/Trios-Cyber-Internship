@@ -1,0 +1,42 @@
+DAY 19 – CONTENT DISCOVERY REVIEW
+Trios Cyber Internship
+Date: 19 September 2026
+Target: http://192.168.56.101/dvwa/
+Tool: FFUF + curl
+
+=== FFUF SCAN ===
+Wordlist: /usr/share/wordlists/dirb/common.txt
+Requests: 4614
+Errors: 0
+
+=== MANUAL PATH INSPECTION ===
+
+[1] /login
+Classification: Useful
+Observed: HTTP 200 OK
+
+[2] /config
+Classification: Redirect
+Observed: HTTP 301 Moved Permanently
+Location: /dvwa/config/
+
+[3] /README
+Classification: Useful
+Observed: HTTP 200 OK
+Content-Type: text/plain
+
+[4] /php.ini
+Classification: Useful / Sensitive
+Observed: HTTP 200 OK
+Content-Type: text/plain
+
+[5] /does-not-exist
+Classification: Error
+Observed: HTTP 404 Not Found
+
+=== EVIDENCE ===
+01-manual-login-path.png
+02-manual-config-redirect.png
+03-manual-readme-useful.png
+04-manual-phpini-useful.png
+05-manual-nonexistent-error.png
