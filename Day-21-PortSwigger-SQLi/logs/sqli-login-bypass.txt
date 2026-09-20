@@ -1,0 +1,40 @@
+DAY 21 - PORTSWIGGER SQL INJECTION LAB
+=======================================
+
+Lab:
+SQL injection vulnerability allowing login bypass
+
+Target:
+Authorized PortSwigger Web Security Academy training lab
+
+Tool:
+Burp Suite
+
+Test sequence:
+1. Opened the assigned SQL injection training lab.
+2. Submitted a normal login request and captured it in Burp Suite.
+3. Sent the login request to Burp Repeater.
+4. Modified the username parameter to:
+   administrator'--
+5. Sent the modified request.
+6. Burp returned:
+   HTTP/2 302 Found
+   Location: /my-account?id=administrator
+7. The response also set a session cookie.
+
+Observed result:
+The application accepted the modified login request and returned a redirect
+to the administrator account endpoint, demonstrating the SQL injection
+login-bypass behavior in the authorized training environment.
+
+Evidence:
+01-portswigger-sqli-lab-open.png
+02-burp-normal-login-request.png
+03-burp-sqli-login-bypass.png
+04-burp-sqli-success-response.png
+
+Note:
+The PortSwigger Academy interface was still displaying "Not solved" during
+final verification. Therefore, this report documents the observed HTTP
+login-bypass behavior and does not claim that the Academy completion status
+was marked as solved.
