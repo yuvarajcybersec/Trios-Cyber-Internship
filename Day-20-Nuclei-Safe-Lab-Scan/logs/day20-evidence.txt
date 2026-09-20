@@ -1,0 +1,45 @@
+DAY 20 - NUCLEI SAFE LAB SCAN
+================================
+
+Target:
+http://192.168.56.101/dvwa/
+
+Authorization:
+Authorized local DVWA intentionally vulnerable training environment.
+
+Tools:
+- Nuclei v3.11.0
+- Burp Suite
+- curl
+
+Evidence 01:
+01-dvwa-target-reachable.png
+Purpose: Confirmed the authorized DVWA target was reachable and returned an HTTP response.
+
+Evidence 02:
+02-nuclei-version-and-templates.png
+Purpose: Recorded the installed Nuclei version and available template information.
+
+Evidence 03:
+03-nuclei-scan-results.png
+Purpose: Captured the completed Nuclei scan results.
+
+Evidence 04:
+04-burp-dvwa-login-request.png
+Purpose: Captured the DVWA login request in Burp Suite HTTP history.
+
+Evidence 05:
+05-burp-login-response-headers.png
+Purpose: Captured the DVWA login response headers for manual inspection.
+
+Evidence 06:
+06-burp-manual-verification-x-frame-options.png
+Purpose: Manually verified the Nuclei-reported missing X-Frame-Options security header.
+
+Manual Verification:
+Nuclei reported a missing X-Frame-Options header for the DVWA login page.
+The corresponding Burp Suite HTTP response was inspected manually.
+The response did not contain an X-Frame-Options header, confirming the reported finding.
+
+Raw Nuclei Output:
+logs/nuclei-scan.txt
