@@ -1,0 +1,52 @@
+DAY 22 - PORTSWIGGER CROSS-SITE SCRIPTING LAB
+==============================================
+
+Lab:
+Reflected XSS into HTML context with nothing encoded
+
+Target:
+Authorized PortSwigger Web Security Academy training lab
+
+Tool:
+Burp Suite
+
+Test sequence:
+1. Opened the assigned PortSwigger reflected XSS training lab.
+2. Performed a normal search using the test value:
+   test123
+3. Captured the search request in Burp Suite HTTP history.
+4. Sent the request to Burp Repeater.
+5. Confirmed that the search parameter was reflected in the HTML response.
+6. Observed the reflected input in the following HTML context:
+   <h1>0 search results for 'test123'</h1>
+7. Modified the search parameter using the XSS proof-of-concept payload:
+   <script>alert(1)</script>
+8. Sent the modified request through Burp Repeater.
+9. Confirmed that the payload was reflected without HTML encoding.
+10. Rendered the response in the Burp browser.
+11. Confirmed JavaScript execution through the alert dialog.
+
+Injection Context:
+HTML body context inside an <h1> element.
+
+Payload:
+<script>alert(1)</script>
+
+Observed Result:
+The JavaScript alert executed successfully in the authorized
+PortSwigger training environment.
+
+Evidence:
+01-portswigger-xss-lab-open.png
+02-burp-normal-search-request.png
+03-xss-alert-execution.png
+04-portswigger-xss-lab-solved.png
+
+Note:
+The final screenshot is retained as the lab-status evidence captured
+during final verification. The report must accurately reflect the
+status shown in that screenshot and must not claim "Solved" unless
+the screenshot visibly shows the Academy lab as solved.
+
+Testing Scope:
+Authorized PortSwigger Web Security Academy training environment only.
