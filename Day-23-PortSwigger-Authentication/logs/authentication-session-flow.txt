@@ -1,0 +1,77 @@
+DAY 23 - PORTSWIGGER AUTHENTICATION LAB
+Lab: 2FA simple bypass
+Target: 0ab70080046bc9048177c18800800064.web-security-academy.net
+Tool: Burp Suite
+
+============================================================
+1. NORMAL AUTHENTICATION FLOW
+============================================================
+
+Request:
+POST /login HTTP/2
+Host: 0ab70080046bc9048177c18800800064.web-security-academy.net
+
+Body:
+username=wiener&password=peter
+
+Response:
+HTTP/2 302 Found
+Location: /login2
+
+Note:
+The application accepted the username/password authentication
+and redirected the user to the second-factor verification page.
+
+
+============================================================
+2. TWO-FACTOR AUTHENTICATION STAGE
+============================================================
+
+Request:
+GET /login2 HTTP/2
+Host: 0ab70080046bc9048177c18800800064.web-security-academy.net
+
+Response:
+HTTP/2 200 OK
+
+The response displayed a form requesting a 4-digit security code
+using the mfa-code parameter.
+
+
+============================================================
+3. CARLOS AUTHENTICATION
+============================================================
+
+Credentials supplied by the PortSwigger training lab:
+Username: carlos
+Password: montoya
+
+After authentication, the application again presented the
+/login2 two-factor authentication stage.
+
+
+============================================================
+4. DIRECT ACCOUNT-PAGE ACCESS TEST
+============================================================
+
+Request:
+GET /my-account HTTP/2
+Host: 0ab70080046bc9048177c18800800064.web-security-academy.net
+
+Observation:
+The account page was accessible directly without completing
+the 2FA code submission.
+
+The PortSwigger Academy displayed the lab as SOLVED.
+
+
+============================================================
+5. SECURITY OBSERVATION
+============================================================
+
+The application enforced the second-factor page in the normal
+authentication flow, but the authenticated session was not
+adequately protected from direct access to the account page.
+
+This demonstrates a simple 2FA bypass caused by insufficient
+server-side enforcement of the second authentication factor.
