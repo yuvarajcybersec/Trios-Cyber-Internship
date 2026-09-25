@@ -1,0 +1,102 @@
+DAY 25 - TRYHACKME BURP SUITE: REPEATER
+
+Platform:
+TryHackMe
+
+Room:
+Burp Suite: Repeater
+
+Tool:
+Burp Suite Community Edition
+
+Final target:
+10.49.155.17
+
+Scope:
+TryHackMe intentionally vulnerable training environment only.
+
+Completed concepts:
+- Repeater interface
+- Inspector
+- Proxy to Repeater
+- Request view
+- Response view
+- Pretty
+- Raw
+- Hex
+- Render
+- Request Body Parameters
+- Header manipulation
+
+Proxy workflow:
+Firefox was configured to use Burp Proxy at:
+127.0.0.1:8080
+
+HTTP history confirmed requests to:
+- GET /
+- GET /products/
+- GET /products/1
+
+Header exercise:
+FlagAuthorised: True
+
+Earlier target:
+10.81.153.16
+
+The earlier target was used during the initial stage of the exercise.
+The final active target later changed to:
+10.49.155.17
+
+Final target connectivity:
+curl -v http://10.49.155.17/
+
+Observed:
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Application: Bastion Hosting
+
+Product challenge:
+Target endpoint:
+/products/1
+
+Modified endpoint:
+/products/-1
+
+Observed result:
+HTTP/1.1 500 INTERNAL SERVER ERROR
+
+This demonstrated server-side error behavior caused by manipulating
+the numeric product identifier.
+
+Extra-mile SQL injection challenge:
+
+Target path:
+/about/2'
+
+Observed:
+HTTP 500 Internal Server Error
+
+Verbose SQL query revealed:
+SELECT firstName, lastName, pfpLink, role, bio FROM people WHERE id = 2'
+
+Column enumeration identified:
+id,firstName,lastName,pfpLink,role,shortRole,bio,notes
+
+Final extraction query:
+SELECT notes FROM people WHERE id=1
+
+The additional SQL injection challenge was completed successfully.
+
+Flags:
+Challenge flags were successfully obtained during the lab.
+They are intentionally omitted from this public repository notes file
+and professional report.
+
+Evidence:
+screenshots/01-tryhackme-burp-repeater-completed.png
+
+Final status:
+Day 25 - COMPLETED
+
+All assigned TryHackMe Burp Suite: Repeater activities and the
+additional Extra-mile SQL injection challenge were completed.
