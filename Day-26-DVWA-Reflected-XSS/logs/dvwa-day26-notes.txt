@@ -1,0 +1,59 @@
+Trios Cyber Internship - Day 26
+WebGoat or DVWA Practice
+Lab: Damn Vulnerable Web Application (DVWA)
+Target: Local DVWA instance
+Target URL: http://127.0.0.1/dvwa/
+
+Environment:
+- Kali Linux
+- Apache HTTP Server
+- MariaDB
+- PHP
+- DVWA installed locally
+- Browser: Firefox
+- Proxy/testing tool: Burp Suite
+
+Setup:
+1. Started Apache.
+2. Started MariaDB.
+3. Installed required PHP extensions.
+4. Cloned the official DVWA repository.
+5. Installed DVWA under /var/www/html/dvwa.
+6. Created the dvwa database.
+7. Created the dedicated dvwa database user.
+8. Configured DVWA database connection.
+9. Created/reset the DVWA database through setup.php.
+10. Logged into the local DVWA application.
+
+DVWA Security:
+- Security level: Low
+
+Lesson:
+- Reflected Cross-Site Scripting (XSS)
+
+Endpoint:
+http://127.0.0.1/dvwa/vulnerabilities/xss_r/
+
+Testing:
+1. Opened the Reflected XSS lesson in the browser.
+2. Configured Firefox to use Burp Suite through 127.0.0.1:8080.
+3. Captured the HTTP request in Burp.
+4. Tested the name parameter with the controlled payload:
+   <script>alert(1)</script>
+5. Submitted the request to the local DVWA application.
+6. Observed the JavaScript alert as the success indicator.
+
+Evidence:
+01-dvwa-database-created.png
+02-dvwa-local-page.png
+03-dvwa-security-low.png
+04-dvwa-xss-request.png
+05-dvwa-xss-success.png
+
+Result:
+Reflected XSS was successfully demonstrated against the intentionally
+vulnerable local DVWA environment at the Low security level.
+
+Safety:
+Testing was performed only against the locally hosted, intentionally
+vulnerable DVWA application at 127.0.0.1.
