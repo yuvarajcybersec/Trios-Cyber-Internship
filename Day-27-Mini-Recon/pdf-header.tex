@@ -1,0 +1,37 @@
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{titlesec}
+
+% Clean page margins
+\usepackage[margin=0.65in]{geometry}
+
+% Professional typography
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Keep screenshots inside the printable area
+\setkeys{Gin}{
+  width=0.90\linewidth,
+  height=0.72\textheight,
+  keepaspectratio
+}
+
+% Cleaner heading spacing
+\titleformat{\section}
+  {\Large\bfseries}
+  {\thesection}
+  {0.6em}
+  {}
+
+\titleformat{\subsection}
+  {\large\bfseries}
+  {\thesubsection}
+  {0.6em}
+  {}
+
+% Better table spacing
+\renewcommand{\arraystretch}{1.15}
