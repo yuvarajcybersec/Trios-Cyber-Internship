@@ -1,0 +1,25 @@
+DAY 28 — AUTOMATED VS MANUAL VERIFICATION
+Target: http://127.0.0.1/
+Authorization: Local authorized lab target
+
+Finding 1 — ETag / inode information disclosure
+Automated observation: Nikto reported that the ETag response may expose inode-related information.
+Manual verification: Burp Suite response inspection confirmed the presence of an ETag header.
+Classification: Confirmed
+Assessment: The automated observation was manually reproduced. Presence of the ETag alone does not establish practical exploitability.
+
+Finding 2 — Missing security headers
+Automated observation: Nikto reported missing Strict-Transport-Security, Referrer-Policy, X-Content-Type-Options, Content-Security-Policy, and Permissions-Policy headers.
+Manual verification: Burp Suite response inspection confirmed that these headers were absent from the captured HTTP response.
+Classification: Confirmed
+Assessment: The automated observation was manually reproduced as a security-header configuration issue.
+
+Finding 3 — Apache server-status exposed
+Automated observation: Nikto identified /server-status as an accessible Apache status endpoint.
+Manual verification: GET /server-status successfully returned the Apache Server Status page.
+Classification: Confirmed
+Assessment: The endpoint exposed operational information including Apache version, uptime, request statistics, worker information, client address, and active request details.
+
+Overall result:
+Three automated findings were manually inspected using Burp Suite.
+All three observations were confirmed in the authorized local lab environment.
